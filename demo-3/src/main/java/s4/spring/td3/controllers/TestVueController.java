@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -24,18 +26,21 @@ public class TestVueController {
 		
 		vue.addData("message","Hello world!");
 		vue.addData("alertVisible",false);
-		
+		vue.addData("ajaxMessage");
+		vue.addData("inputValue");
+
 		vue.addMethod("update", "this.message=\"Message modifié !\"");
-		vue.addMethod("testAjax", Http.post("/vue/test/ajax", "this.ajaxMessage=response.data;this.alertVisible=true;"));
+		vue.addMethod("testAjax","var self=this;"+Http.post("/vue/test/ajax","{v:self.inputValue}",
+				"self.ajaxMessage=response.data;self.alertVisible=true;"));
 	
 
 		return "vueJs/test";
 		
 	}
 	
-	@GetMapping("test/ajax")
+	@PostMapping("test/ajax")
 	@ResponseBody
-	public String testAjax() {
-		return "Test ok";
+	public String testAjax(@RequestBody String v) {
+		return "Test ok" +v;
 	}
 }
