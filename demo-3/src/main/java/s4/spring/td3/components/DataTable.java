@@ -15,7 +15,7 @@ public class DataTable {
 			compo.addProp("headers","Array",true);
 			compo.addProp("items","Array",true);
 
-			compo.addProp("noData", "Aucun élément à afficher");
+			compo.addProp("noData", "	Aucun élément à afficher");
 
 			compo.setDefaultTemplateFile();
 			compo.createFile(false);
