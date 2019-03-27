@@ -8,13 +8,22 @@
 </head>
 <body>
 <div class="ui secondary pointing menu">
-  <a class="item">
-	Nom du mec
-  </a>
+	{{#user}}
+		<a role="button" class="btn btn-dark ui item " href="/index">Connecté en tant que {{user.login}} - {{user.email}}</a>
+	
+	{{/user}}
+	
+	{{^user}}
+		<a role="button" class="btn btn-dark ui item " href="/user/login">Connectez-vous</a>
+	{{/user}}
   <div class="right menu">
-    <a class="ui item">
-      Logout
-    </a>
+    {{#user}}
+		<a role="button" class="btn btn-dark ui item " href="/user/logout">Logout</a>
+	{{/user}}
+	
+	{{^user}}
+		<a role="button" class="btn btn-dark ui item " href="/user/login">Login</a>
+	{{/user}}
   </div>
 </div>
 
