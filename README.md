@@ -2,7 +2,9 @@
 
 demo-2 : Controllers, Entities, Repositories in Spring
 
-demo-3 : Added VueJs, Reqeuest Ajax and Vuetifiyjs
+demo-3 : Added VueJs, Request Ajax and Vuetifiyjs
+
+gestion-script : Login/Logout pages, use of session variables
 
 # Problems with Spring
 
