@@ -4,7 +4,7 @@ demo-2 : Controllers, Entities, Repositories in Spring
 
 demo-3 : Added VueJs, Request Ajax and Vuetifiyjs
 
-gestion-script : Login/Logout pages, use of session variables
+gestion-script : Little application allowing users to save scripts/text documents and update them, while keeping an history of it. Includes Login/Logout pages, use of session variables, advanced use of JPA Repositories
 
 # Problems with Spring
 
