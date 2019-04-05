@@ -16,6 +16,8 @@
 	{{^user}}
 		<a role="button" class="btn btn-dark ui item " href="/user/login">Connectez-vous</a>
 	{{/user}}
+
+	
   <div class="right menu">
     {{#user}}
 		<a role="button" class="btn btn-dark ui item " href="/user/logout">Logout</a>
@@ -25,6 +27,21 @@
 		<a role="button" class="btn btn-dark ui item " href="/user/login">Login</a>
 	{{/user}}
   </div>
+  
+  <a class="ui animated button green" tabindex="0" href="/script/initbase">
+	<div class="visible content">Initialiser BDD</div>
+	<div class="hidden content">
+		<i class="download icon"></i>
+	</div>
+</a>
+
+<a class="ui animated button red" tabindex="0" href="/script/deletebase">
+	<div class="visible content">Vider BDD</div>
+	<div class="hidden content">
+		<i class="trash alternate icon"></i>
+	</div>
+</a>
+
 </div>
 
 <div class="ui container">

@@ -1,0 +1,61 @@
+{{>header}}
+
+<form class="ui form" action="/script/submit" method="POST">
+	<div class="field">
+		<label>Titre</label> <input type="text" name="title"
+			{{#script}} value="{{title}}"
+			{{/script}}
+			placeholder="Mon super script">
+	</div>
+	<div class="field">
+		<label>Description</label> <input type="text" name="description"
+			placeholder="Un script permettant de devenir genial"
+			{{#script}} value="{{description}}"{{/script}}>
+	</div>
+	<div class="field">
+
+		<label for="categorie">Categorie</label> <select name="categorie">
+			{{#Cselect}}
+			<option value={{id}}>{{name}}</option>{{/Cselect}} {{#categories}}
+			<option value="{{id}}">{{name}}</option> {{/categories}}
+		</select>
+	</div>
+
+	<div class="field">
+
+		<label for="langage">Langage</label> <select name="langage">
+			{{#Lselect}}
+			<option value={{id}}>{{name}}</option>{{/Lselect}} {{#langages}}
+			<option value="{{id}}">{{name}}</option> {{/langages}}
+		</select>
+	</div>
+	
+	<div class="field">
+		<label>Contenu</label>
+		<textarea name="content" placeholder="Deviens genial">{{#script}}{{content}} {{/script}}</textarea>
+	</div>
+
+	<div class="field">
+		<label>Commentaire</label> <input type="text" name="commentaire" placeholder="Qu'est ce qui change ?">
+	</div>
+
+	<!-- il faut repasser l'id dans le script qu'on va modifier sans le mettre dans l'url donc il sera accessible ici en POST-->
+	<input type="hidden" name="id" value="{{#script}}{{id}} {{/script}}" />
+
+
+	<button type="submit" class="ui animated button orange" tabindex="0">
+		<div class="visible content">Modifier</div>
+		<div class="hidden content">
+			<i class="copy icon"></i>
+		</div>
+	</button>
+
+	<a class="ui animated button red" tabindex="0" href="../index">
+		<div class="visible content">Annuler</div>
+		<div class="hidden content">
+			<i class="long arrow alternate left icon"></i>
+		</div>
+	</a>
+</form>
+
+{{>footer}}

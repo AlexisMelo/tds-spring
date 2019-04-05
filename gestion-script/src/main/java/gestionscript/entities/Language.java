@@ -1,9 +1,14 @@
 package gestionscript.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Language {
@@ -14,6 +19,13 @@ public class Language {
 	
 	private String name;
 
+	@OneToMany(mappedBy = "langage")
+	private List<Script> scripts;
+	
+	public Language() {
+		scripts = new ArrayList<>();
+	}
+	
 	public int getId() {
 		return id;
 	}

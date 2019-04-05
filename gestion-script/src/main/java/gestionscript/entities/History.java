@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class History {
@@ -15,8 +16,13 @@ public class History {
 	private int id;
 	
 	private Date date;
-	private String content;
+	
+	@ManyToOne
+	private Script script;
+	
 	private String comment;
+	
+	private String content;
 	
 	public int getId() {
 		return id;
@@ -30,11 +36,17 @@ public class History {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	public Script getScript() {
+		return script;
+	}
 	public String getContent() {
 		return content;
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public void setScript(Script script) {
+		this.script = script;
 	}
 	public String getComment() {
 		return comment;

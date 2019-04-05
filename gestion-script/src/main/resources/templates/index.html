@@ -1,3 +1,45 @@
 {{>header}}
- accueil hihi
+
+<a class="ui animated button green" tabindex="0" href="/script/new">
+	<div class="visible content">Nouveau script</div>
+	<div class="hidden content">
+		<i class="angle right icon"></i>
+	</div>
+</a>
+
+<table class="ui single-line table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Nom</th>
+			<th>Description</th>
+			<th>Date d'ajout</th>
+			<th></th>
+						<th></th>
+			
+		</tr>
+	</thead>
+
+	<tbody>
+		{{#scripts}}
+		<tr>
+			<td>{{id}}</td>
+			<td>{{title}}</td>
+			<td>{{description}}</td>
+			<td>{{creationDate}}</td>
+			<td><a href="/script/delete/{{id}}">
+					<button class="circular red ui icon button">
+						<i class="delete icon"></i>
+					</button>
+			</a></td>
+			<td><a href="/script/{{id}}">
+					<button class="circular orange ui icon button">
+						<i class="edit icon"></i>
+					</button>
+			</a></td>
+		</tr>
+		{{/scripts}}
+	</tbody>
+</table>
+
 {{>footer}}
